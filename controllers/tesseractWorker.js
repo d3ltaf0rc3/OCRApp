@@ -1,12 +1,15 @@
-const { createWorker } = require('tesseract.js');
+module.exports = async (imageLocation, req, res) => {
+    const { createWorker } = require('tesseract.js');
 
-const worker = createWorker();
+    const worker = createWorker();
 
-module.exports = async (imageLocation) => {
     await worker.load();
     await worker.loadLanguage('eng');
     await worker.initialize('eng');
     const { data: { text } } = await worker.recognize(imageLocation);
     await worker.terminate();
-    return text;
+    return res.render("result", {
+        title: "Home | OCR App",
+        text
+    });
 };

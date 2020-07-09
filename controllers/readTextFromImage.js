@@ -12,7 +12,5 @@ module.exports = async (req, res) => {
         if (err) return res.redirect("/");
     });
 
-    const text = await ocrFunc(path.join(__dirname, `../images/${sampleFile.name}`));
-    console.log(text);
-    return res.download(path.join(__dirname, `../images/${sampleFile.name}`));
+    await ocrFunc(path.join(__dirname, `../images/${sampleFile.name}`), req, res);    
 };

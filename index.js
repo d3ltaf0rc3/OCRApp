@@ -1,15 +1,21 @@
 const express = require("express");
 const fileupload = require("express-fileupload");
 const readText = require("./controllers/readTextFromImage");
-const path = require("path");
+const handlebars = require("express-handlebars");
 const app = express();
 const PORT = 3000;
 
+app.engine("hbs", handlebars({
+    extname: "hbs"
+}));
+app.set("view engine", "hbs");
 app.use(fileupload());
 app.use("/public", express.static("public"));
 
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname + "/index.html"));
+    res.render("home", {
+        title: "Home | OCR App"
+    });
 });
 
 app.post("/", async (req, res) => {
