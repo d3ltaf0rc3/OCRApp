@@ -43,12 +43,14 @@ nav {
 }
 
 .hero h1,
-.result-container h1 {
+.result-container h1,
+.about-info h1 {
   font-size: 4rem;
   padding: 4rem 0;
 }
 
-.hero p {
+.hero p,
+.about-info p {
   font-size: 2.4rem;
   padding-top: 2rem;
   padding-bottom: 10rem;
@@ -99,7 +101,8 @@ button {
   }
 }
 
-.result-container {
+.result-container,
+.about-info {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -107,11 +110,16 @@ button {
 }
 
 .result-container h3 {
-    padding: 4rem 0;
-    font-size: 1.6rem;
+  padding: 4rem 0;
+  font-size: 1.6rem;
 }
 
 .result-container p {
-    font-size: 2.4rem;
-    padding: 2rem 0;
+  font-size: 2.4rem;
+  padding: 2rem 0;
+}
+
+.about-info h6 {
+  font-size: 1.5rem;
+  padding-bottom: 4rem;
 }

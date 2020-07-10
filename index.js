@@ -1,16 +1,9 @@
 const express = require("express");
-const fileupload = require("express-fileupload");
 const readText = require("./controllers/readTextFromImage");
-const handlebars = require("express-handlebars");
 const app = express();
 const PORT = 3000;
 
-app.engine("hbs", handlebars({
-    extname: "hbs"
-}));
-app.set("view engine", "hbs");
-app.use(fileupload());
-app.use("/public", express.static("public"));
+require("./config/express")(app);
 
 app.get("/", (req, res) => {
     res.render("home", {
@@ -20,6 +13,12 @@ app.get("/", (req, res) => {
 
 app.post("/", async (req, res) => {
     await readText(req, res);
+});
+
+app.get("/about", (req, res) => {
+    res.render("about", {
+        title: "About | OCR App"
+    });
 });
 
 app.listen(PORT, err => {

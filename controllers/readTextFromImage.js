@@ -12,5 +12,5 @@ module.exports = async (req, res) => {
         if (err) return res.redirect("/");
     });
 
-    await ocrFunc(path.join(__dirname, `../images/${sampleFile.name}`), req, res);    
+    await ocrFunc(path.join(__dirname, `../images/${sampleFile.name}`), res);    
 };
