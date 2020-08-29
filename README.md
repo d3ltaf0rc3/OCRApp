@@ -1,5 +1,5 @@
 # OCR App
-OCR app built using Express and Tesseract.js
+OCR app built using Express and Tesseract.js. The app extracts the text from an image and makes it copyable.
 
 ## Setup
 1. Run **npm install** to install all dependencies
