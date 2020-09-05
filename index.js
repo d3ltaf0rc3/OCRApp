@@ -15,12 +15,6 @@ app.post("/", async (req, res) => {
     await readText(req, res);
 });
 
-app.get("/about", (req, res) => {
-    res.render("about", {
-        title: "About | OCR App"
-    });
-});
-
 app.listen(PORT, err => {
     if (err) throw err;
     console.log(`Server is running on port ${PORT}`);
