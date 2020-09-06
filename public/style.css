@@ -140,6 +140,8 @@ nav {
 .result-container p {
   font-size: 2.4rem;
   padding: 2rem 0;
+  width: 70%;
+  margin: auto;
 }
 
 .about-info h6 {
