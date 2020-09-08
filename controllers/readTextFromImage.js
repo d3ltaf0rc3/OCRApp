@@ -7,6 +7,7 @@ module.exports = async (req, res) => {
     }
 
     const sampleFile = req.files.photo;
+    const filePath = path.join(__dirname, `../images/${sampleFile.name}`);
 
     if (!sampleFile.name.endsWith("jpg") &&
         !sampleFile.name.endsWith("png") && 
@@ -15,9 +16,9 @@ module.exports = async (req, res) => {
         return res.redirect("/");
     }
 
-    await sampleFile.mv(path.join(__dirname, `../images/${sampleFile.name}`), err => {
+    await sampleFile.mv(filePath, err => {
         if (err) return res.redirect("/");
     });
 
-    await ocrFunc(path.join(__dirname, `../images/${sampleFile.name}`), res);
+    await ocrFunc(filePath, res);
 };
