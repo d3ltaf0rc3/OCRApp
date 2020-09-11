@@ -1,7 +1,6 @@
 const express = require("express");
 const readText = require("./controllers/readTextFromImage");
 const app = express();
-const PORT = 3000;
 
 require("./config/express")(app);
 
@@ -15,7 +14,7 @@ app.post("/", async (req, res) => {
     await readText(req, res);
 });
 
-app.listen(PORT, err => {
+app.listen(process.env.PORT, err => {
     if (err) throw err;
     console.log(`Server is running on port ${PORT}`);
 });
