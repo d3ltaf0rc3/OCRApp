@@ -16,5 +16,5 @@ app.post("/", async (req, res) => {
 
 app.listen(process.env.PORT, err => {
     if (err) throw err;
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`Server is running on port ${process.env.PORT}`);
 });
