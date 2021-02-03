@@ -5,9 +5,7 @@ const app = express();
 require("./config/express")(app);
 
 app.get("/", (req, res) => {
-    res.render("home", {
-        title: "Home | OCR App"
-    });
+    res.render("home");
 });
 
 app.post("/", async (req, res) => {
